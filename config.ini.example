@@ -1,0 +1,5 @@
+[TESTS]
+REPOSITORY = git@github.com:programming/exercises.git
+
+[STUDENTS]
+REPOSITORY = git@github.com:$STUDENT$/programming-solutions.git

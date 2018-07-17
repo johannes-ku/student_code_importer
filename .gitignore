@@ -1,0 +1,6 @@
+*.iml
+.idea
+config.ini
+student_sources
+tests
+working
