@@ -81,8 +81,6 @@ def import_solution_and_tests():
         print("Cleaning old \"working\" directory...")
         rmtree("working")
         os.makedirs("working")
-        os.makedirs("working/src")
-        os.makedirs("working/tests")
         print("Cleaned \"working\"!")
 
     sleep(1)  # HACKS!
