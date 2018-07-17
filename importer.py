@@ -33,7 +33,6 @@ def update_tests():
                   stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=False)
         flags = fcntl(p.stdout, F_GETFL)
         fcntl(p.stdout, F_SETFL, flags | os.O_NONBLOCK)
-        sleep(0.1)
         while True:
             try:
                 out = os.read(p.stdout.fileno(), 1024)
@@ -48,7 +47,6 @@ def update_tests():
                   stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=False)
         flags = fcntl(p.stdout, F_GETFL)
         fcntl(p.stdout, F_SETFL, flags | os.O_NONBLOCK)
-        sleep(0.1)
         while True:
             try:
                 out = os.read(p.stdout.fileno(), 1024)
@@ -127,7 +125,6 @@ def get_students_repository(student):
               stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=False)
     flags = fcntl(p.stdout, F_GETFL)
     fcntl(p.stdout, F_SETFL, flags | os.O_NONBLOCK)
-    sleep(0.1)
     while True:
         try:
             out = os.read(p.stdout.fileno(), 1024)
