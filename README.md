@@ -10,8 +10,8 @@
 
 #### Tasks
 
-* `help` - Prints this.
-* `import` - Imports students solution and tests for the exercise int "working". Requires student and exercise!
+* `help` - Prints help.
+* `import` - Imports students solution and tests for the exercise into "working". Requires student and exercise!
 * `update` - Updates tests from tests repository. Will not update tests already in "working".
 * `clean` - Cleans the "working" directory, existing student sources and tests.
 

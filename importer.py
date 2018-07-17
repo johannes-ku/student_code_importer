@@ -17,7 +17,7 @@ def print_help_and_exit():
     print("TASKS:")
     print("")
     print("help        Prints this.")
-    print("import      Imports students solution and tests for the exercise int \"working\". Requires student and exercise!")
+    print("import      Imports students solution and tests for the exercise into \"working\". Requires student and exercise!")
     print("update      Updates tests from tests repository. Will not update tests already in \"working\".")
     print("clean       Cleans the \"working\" directory, existing student sources and tests.")
     print("")
