@@ -6,23 +6,27 @@ from shutil import rmtree
 from subprocess import Popen, PIPE
 from time import sleep
 from fcntl import fcntl, F_GETFL, F_SETFL
+from textwrap import dedent
 
 config = configparser.ConfigParser()
 config.read("config.ini")
 
 
 def print_help_and_exit():
-    print("Usage: python3 importer.py <task> [<student>] [<exercise>]")
-    print("")
-    print("TASKS:")
-    print("")
-    print("help        Prints this.")
-    print("import      Imports students solution and tests for the exercise into \"working\". Requires student and exercise!")
-    print("update      Updates tests from tests repository. Will not update tests already in \"working\".")
-    print("clean       Cleans the \"working\" directory, existing student sources and tests.")
-    print("")
-    print("Feel free to make pull requests and create issues: github.com/jkymmel/student_code_importer")
-    print("")
+    help_text = dedent("""
+    Usage: python3 importer.py <task> [<student>] [<exercise>]
+
+    TASKS:
+
+    help        Prints this.
+    import      Imports students solution and tests for the exercise into "working". Requires student and exercise!
+    update      Updates tests from tests repository. Will not update tests already in "working".
+    clean       Cleans the "working" directory, existing student sources and tests.
+    test        Runs tests in "working" directory.
+
+    Feel free to make pull requests and create issues: github.com/jkymmel/student_code_importer
+    """)[1:]
+    print(help_text)
     exit(0)
 
 
@@ -115,6 +119,11 @@ def clean():
     print("\nCLEANED!")
 
 
+def run_tests():
+    task = Popen(["pytest", "working/"])
+    task.wait()
+
+
 def get_students_repository(student):
     if os.path.isdir("student_sources"):
         print("Removing old student's sources...")
@@ -147,5 +156,7 @@ if __name__ == '__main__':
         import_solution_and_tests()
     elif task == "clean":
         clean()
+    elif task == "test":
+        run_tests()
     else:
         print_help_and_exit()
